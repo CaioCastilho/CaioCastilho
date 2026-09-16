@@ -27,8 +27,14 @@
   </defs>
 
   <style>
+    * {
+      text-rendering: geometricPrecision;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
     .font-term {
-      font-family: 'Fira Code', 'Courier New', Consolas, Menlo, Monaco, monospace;
+      font-family: 'Cascadia Code', Consolas, 'SF Mono', Menlo, Monaco, 'Fira Code', 'Courier New', monospace;
     }
     .font-ui {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
@@ -221,7 +227,7 @@
   <g transform="translate(28, 442)">
     <!-- Indicador de automação -->
     <text x="0" y="0" class="font-term" font-size="11" fill="#6e7681">
-      <tspan fill="#00ff9d">●</tspan> GitHub Actions Runner: <tspan fill="#e6edf3">synced</tspan> | Atualizado em: <tspan fill="#00f0ff" font-weight="600">15/09/2026 22:25 BRT</tspan>
+      <tspan fill="#00ff9d">●</tspan> GitHub Actions Runner: <tspan fill="#e6edf3">synced</tspan> | Atualizado em: <tspan fill="#00f0ff" font-weight="600">15/09/2026 22:31 BRT</tspan>
     </text>
 
     <!-- Localização / Branch -->
