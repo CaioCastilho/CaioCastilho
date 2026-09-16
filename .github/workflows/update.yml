@@ -1,0 +1,71 @@
+name: Atualizar Perfil Animado (SVG)
+
+on:
+  # Agendamento diário: roda todos os dias à meia-noite UTC (21:00 BRT)
+  schedule:
+    - cron: '0 0 * * *'
+
+  # Permite disparar a execução manualmente a qualquer momento pela interface do GitHub
+  workflow_dispatch:
+
+  # Dispara automaticamente se houver alteração no código do gerador ou no template
+  push:
+    branches:
+      - main
+    paths:
+      - 'template.svg'
+      - 'generate.py'
+      - 'requirements.txt'
+
+# Permissões necessárias para que o bot possa fazer commit e push na branch principal
+permissions:
+  contents: write
+
+jobs:
+  update-profile-svg:
+    runs-on: ubuntu-latest
+    name: Gerar e Atualizar SVG Dinâmico
+
+    steps:
+      # 1. Faz o checkout do repositório
+      - name: Checkout do Repositório
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # 2. Configura o ambiente Python
+      - name: Configurar Ambiente Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      # 3. Instala as dependências listadas no requirements.txt
+      - name: Instalar Dependências
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      # 4. Executa o script gerador passando o token do GitHub para evitar rate-limits
+      - name: Executar Motor Python (generate.py)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_USERNAME: ${{ github.repository_owner }}
+        run: |
+          python generate.py
+
+      # 5. Verifica se houve alteração e faz commit/push como github-actions[bot]
+      - name: Salvar e Publicar Alterações
+        run: |
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add perfil_animado.svg
+
+          # Verifica se o arquivo perfil_animado.svg teve mudanças de fato
+          if git diff --staged --quiet; then
+            echo "Nenhuma alteração detectada nas métricas. Commit não é necessário."
+          else
+            git commit -m "chore(profile): atualizar métricas dinâmicas do SVG [skip ci]"
+            git push origin main
+          fi

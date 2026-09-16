@@ -1,0 +1,232 @@
+<svg width="840" height="470" viewBox="0 0 840 470" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradiente de Borda Neon -->
+    <linearGradient id="neonGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00f0ff" />
+      <stop offset="50%" stop-color="#7928ca" />
+      <stop offset="100%" stop-color="#ff0080" />
+    </linearGradient>
+
+    <!-- Gradiente de Fundo do Terminal -->
+    <linearGradient id="termBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0e131f" />
+      <stop offset="100%" stop-color="#070a10" />
+    </linearGradient>
+
+    <!-- Gradiente dos Cards de Métricas -->
+    <linearGradient id="cardBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#161f30" stop-opacity="0.85" />
+      <stop offset="100%" stop-color="#0c121d" stop-opacity="0.95" />
+    </linearGradient>
+
+    <!-- Gradiente para Acentos Ciano/Verde -->
+    <linearGradient id="accentCyan" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00f0ff" />
+      <stop offset="100%" stop-color="#00ff9d" />
+    </linearGradient>
+  </defs>
+
+  <style>
+    .font-term {
+      font-family: 'Fira Code', 'Courier New', Consolas, Menlo, Monaco, monospace;
+    }
+    .font-ui {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    /* Animação do Cursor Piscante do Terminal */
+    @keyframes blink {
+      0%, 49% { opacity: 1; }
+      50%, 100% { opacity: 0; }
+    }
+    .cursor {
+      animation: blink 0.9s infinite ease-in-out;
+      fill: #00ff9d;
+    }
+
+    /* Pulsação do Status Online */
+    @keyframes pulseOnline {
+      0% { r: 4.5; opacity: 1; }
+      50% { r: 6.5; opacity: 0.4; }
+      100% { r: 4.5; opacity: 1; }
+    }
+    .pulse-dot {
+      animation: pulseOnline 2s infinite ease-in-out;
+      transform-origin: center;
+    }
+
+    /* Animação de brilho sutil dos cards */
+    @keyframes glowFade {
+      0%, 100% { stroke-opacity: 0.3; }
+      50% { stroke-opacity: 0.8; }
+    }
+    .card-border {
+      animation: glowFade 4s infinite ease-in-out;
+    }
+
+    /* Cores de texto semânticas */
+    .txt-prompt { fill: #00ff9d; font-weight: bold; }
+    .txt-cmd { fill: #f8f8f2; }
+    .txt-accent { fill: #00f0ff; font-weight: bold; }
+    .txt-secondary { fill: #8b949e; }
+    .txt-purple { fill: #bd93f9; }
+    .txt-metric-val { fill: #ffffff; font-weight: 700; font-size: 22px; }
+  </style>
+
+  <!-- Janela do Terminal (Container Principal) -->
+  <rect x="2" y="2" width="836" height="466" rx="14" fill="url(#termBg)" stroke="url(#neonGlow)" stroke-width="1.8" />
+
+  <!-- Barra Superior do Terminal -->
+  <path d="M 3 16 Q 3 3 16 3 L 824 3 Q 837 3 837 16 L 837 42 L 3 42 Z" fill="#131926" />
+  <line x1="3" y1="42" x2="837" y2="42" stroke="#1f293d" stroke-width="1.2" />
+
+  <!-- Botões Estilo macOS / Janela Unix -->
+  <circle cx="24" cy="22" r="6" fill="#ff5f56" />
+  <circle cx="44" cy="22" r="6" fill="#ffbd2e" />
+  <circle cx="64" cy="22" r="6" fill="#27c93f" />
+
+  <!-- Título da Janela -->
+  <text x="420" y="27" text-anchor="middle" class="font-term txt-secondary" font-size="12" letter-spacing="1">
+    caiocastilho@dev-terminal:~ (zsh) — 840x470
+  </text>
+
+  <!-- Indicador Status Online / Telemetria -->
+  <g transform="translate(680, 16)">
+    <circle cx="10" cy="6" r="4.5" fill="#00ff9d" />
+    <circle cx="10" cy="6" r="4.5" fill="#00ff9d" class="pulse-dot" />
+    <text x="22" y="10" class="font-term" fill="#00ff9d" font-size="10.5" font-weight="bold" letter-spacing="0.5">
+      LIVE STATS
+    </text>
+  </g>
+
+  <!-- ==================== SEÇÃO 1: SOBRE MIM ==================== -->
+  <g transform="translate(28, 70)">
+    <!-- Linha de Comando -->
+    <text x="0" y="0" class="font-term" font-size="14">
+      <tspan class="txt-prompt">caiocastilho@sys:~$</tspan>
+      <tspan class="txt-cmd"> whoami --details</tspan>
+      <tspan class="cursor">_</tspan>
+    </text>
+
+    <!-- Bio / Apresentação -->
+    <text x="12" y="24" class="font-ui txt-secondary" font-size="13">
+      Desenvolvedor <tspan fill="#00f0ff" font-weight="bold">Fullstack &amp; Frontend</tspan> focado na construção de aplicações web modernas,
+    </text>
+    <text x="12" y="44" class="font-ui txt-secondary" font-size="13">
+      interfaces interativas de alta performance e experiências visuais fluidas.
+    </text>
+  </g>
+
+  <!-- ==================== SEÇÃO 2: STACK PRINCIPAL ==================== -->
+  <g transform="translate(28, 150)">
+    <text x="0" y="0" class="font-term" font-size="14">
+      <tspan class="txt-prompt">caiocastilho@sys:~$</tspan>
+      <tspan class="txt-cmd"> stack --active</tspan>
+    </text>
+
+    <!-- Badges de Tecnologias -->
+    <!-- Tag 1: TypeScript -->
+    <g transform="translate(12, 14)">
+      <rect x="0" y="0" width="100" height="26" rx="6" fill="#1b2438" stroke="#3178c6" stroke-width="1" />
+      <circle cx="12" cy="13" r="4" fill="#3178c6" />
+      <text x="24" y="17" class="font-term" fill="#93c5fd" font-size="11" font-weight="600">TypeScript</text>
+    </g>
+
+    <!-- Tag 2: React -->
+    <g transform="translate(122, 14)">
+      <rect x="0" y="0" width="80" height="26" rx="6" fill="#1b2438" stroke="#00d8ff" stroke-width="1" />
+      <circle cx="12" cy="13" r="4" fill="#00d8ff" />
+      <text x="24" y="17" class="font-term" fill="#67e8f9" font-size="11" font-weight="600">React</text>
+    </g>
+
+    <!-- Tag 3: Python -->
+    <g transform="translate(212, 14)">
+      <rect x="0" y="0" width="86" height="26" rx="6" fill="#1b2438" stroke="#ffd43b" stroke-width="1" />
+      <circle cx="12" cy="13" r="4" fill="#ffd43b" />
+      <text x="24" y="17" class="font-term" fill="#fde047" font-size="11" font-weight="600">Python</text>
+    </g>
+
+    <!-- Tag 4: Node.js -->
+    <g transform="translate(308, 14)">
+      <rect x="0" y="0" width="90" height="26" rx="6" fill="#1b2438" stroke="#68a063" stroke-width="1" />
+      <circle cx="12" cy="13" r="4" fill="#68a063" />
+      <text x="24" y="17" class="font-term" fill="#86efac" font-size="11" font-weight="600">Node.js</text>
+    </g>
+
+    <!-- Tag 5: TailwindCSS -->
+    <g transform="translate(408, 14)">
+      <rect x="0" y="0" width="112" height="26" rx="6" fill="#1b2438" stroke="#38bdf8" stroke-width="1" />
+      <circle cx="12" cy="13" r="4" fill="#38bdf8" />
+      <text x="24" y="17" class="font-term" fill="#bae6fd" font-size="11" font-weight="600">TailwindCSS</text>
+    </g>
+
+    <!-- Tag 6: Git & CI/CD -->
+    <g transform="translate(530, 14)">
+      <rect x="0" y="0" width="116" height="26" rx="6" fill="#1b2438" stroke="#f05032" stroke-width="1" />
+      <circle cx="12" cy="13" r="4" fill="#f05032" />
+      <text x="24" y="17" class="font-term" fill="#fca5a5" font-size="11" font-weight="600">Git &amp; CI/CD</text>
+    </g>
+  </g>
+
+  <!-- ==================== SEÇÃO 3: MÉTRICAS DINÂMICAS ==================== -->
+  <g transform="translate(28, 230)">
+    <text x="0" y="0" class="font-term" font-size="14">
+      <tspan class="txt-prompt">caiocastilho@sys:~$</tspan>
+      <tspan class="txt-cmd"> curl -s https://api.github.com/stats</tspan>
+    </text>
+
+    <!-- GRID DE 4 CARDS -->
+
+    <!-- Card 1: Commits -->
+    <g transform="translate(0, 16)">
+      <rect width="186" height="96" rx="10" fill="url(#cardBg)" stroke="#00f0ff" stroke-width="1.2" class="card-border" />
+      <!-- Ícone Git Commit -->
+      <path d="M 24 28 A 5 5 0 0 1 34 28 A 5 5 0 0 1 24 28 M 16 28 L 24 28 M 34 28 L 42 28" stroke="#00f0ff" stroke-width="2" stroke-linecap="round" fill="none" />
+      <text x="20" y="58" class="font-ui" fill="#8b949e" font-size="12" font-weight="500">Total Commits</text>
+      <text x="20" y="88" class="font-term txt-metric-val" id="total-commits">0</text>
+    </g>
+
+    <!-- Card 2: Stars -->
+    <g transform="translate(198, 16)">
+      <rect width="186" height="96" rx="10" fill="url(#cardBg)" stroke="#ffd700" stroke-width="1.2" class="card-border" />
+      <!-- Ícone Estrela -->
+      <path d="M 28 20 L 30.5 25.5 L 36.5 26.3 L 32.2 30.5 L 33.2 36.5 L 28 33.6 L 22.8 36.5 L 23.8 30.5 L 19.5 26.3 L 25.5 25.5 Z" fill="#ffd700" />
+      <text x="20" y="58" class="font-ui" fill="#8b949e" font-size="12" font-weight="500">Stars Conquistadas</text>
+      <text x="20" y="88" class="font-term txt-metric-val" id="total-stars">0</text>
+    </g>
+
+    <!-- Card 3: Seguidores -->
+    <g transform="translate(396, 16)">
+      <rect width="186" height="96" rx="10" fill="url(#cardBg)" stroke="#00ff9d" stroke-width="1.2" class="card-border" />
+      <!-- Ícone Followers / Usuários -->
+      <circle cx="28" cy="24" r="5" fill="#00ff9d" />
+      <path d="M 18 37 C 18 32 23 32 28 32 C 33 32 38 32 38 37" stroke="#00ff9d" stroke-width="2" fill="none" stroke-linecap="round" />
+      <text x="20" y="58" class="font-ui" fill="#8b949e" font-size="12" font-weight="500">Seguidores</text>
+      <text x="20" y="88" class="font-term txt-metric-val" id="total-followers">1</text>
+    </g>
+
+    <!-- Card 4: Repositórios Públicos -->
+    <g transform="translate(594, 16)">
+      <rect width="186" height="96" rx="10" fill="url(#cardBg)" stroke="#bd93f9" stroke-width="1.2" class="card-border" />
+      <!-- Ícone Repositório / Pasta -->
+      <path d="M 20 22 L 27 22 L 30 25 L 38 25 A 2 2 0 0 1 40 27 L 40 35 A 2 2 0 0 1 38 37 L 20 37 A 2 2 0 0 1 18 35 L 18 24 A 2 2 0 0 1 20 22 Z" stroke="#bd93f9" stroke-width="2" fill="none" stroke-linejoin="round" />
+      <text x="20" y="58" class="font-ui" fill="#8b949e" font-size="12" font-weight="500">Repositórios</text>
+      <text x="20" y="88" class="font-term txt-metric-val" id="public-repos">1</text>
+    </g>
+  </g>
+
+  <!-- ==================== RODAPÉ / STATUS BAR ==================== -->
+  <line x1="28" y1="422" x2="812" y2="422" stroke="#1f293d" stroke-width="1" />
+
+  <g transform="translate(28, 442)">
+    <!-- Indicador de automação -->
+    <text x="0" y="0" class="font-term" font-size="11" fill="#6e7681">
+      <tspan fill="#00ff9d">●</tspan> GitHub Actions Runner: <tspan fill="#e6edf3">synced</tspan> | Atualizado em: <tspan fill="#00f0ff" font-weight="600">15/09/2026 22:23 BRT</tspan>
+    </text>
+
+    <!-- Localização / Branch -->
+    <text x="784" y="0" text-anchor="end" class="font-term" font-size="11" fill="#6e7681">
+      branch: <tspan fill="#bd93f9">main</tspan> | UTF-8
+    </text>
+  </g>
+</svg>
