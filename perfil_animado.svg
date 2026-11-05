@@ -217,7 +217,7 @@
         <circle cx="27" cy="22" r="4.5" fill="#3fb950" />
         <path d="M 18 34 C 18 29.5 22.5 29.5 27 29.5 C 31.5 29.5 36 29.5 36 34" stroke="#3fb950" stroke-width="2" fill="none" stroke-linecap="round" />
         <text x="18" y="52" class="font-sans card-title">Seguidores</text>
-        <text x="18" y="78" class="font-mono card-val" id="total-followers">2</text>
+        <text x="18" y="78" class="font-mono card-val" id="total-followers">3</text>
       </g>
 
       <!-- Card 4: Repositórios -->
@@ -242,7 +242,7 @@
 
     <!-- Horário de sincronização -->
     <text x="768" y="0" text-anchor="end" class="font-sans footer-desc">
-      Última telemetria: <tspan fill="#f0f6fc" font-weight="600">04/11/2026 00:40 BRT</tspan>
+      Última telemetria: <tspan fill="#f0f6fc" font-weight="600">05/11/2026 00:59 BRT</tspan>
     </text>
   </g>
 </svg>
