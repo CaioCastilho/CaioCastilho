@@ -242,7 +242,7 @@
 
     <!-- Horário de sincronização -->
     <text x="768" y="0" text-anchor="end" class="font-sans footer-desc">
-      Última telemetria: <tspan fill="#f0f6fc" font-weight="600">23/11/2026 01:28 BRT</tspan>
+      Última telemetria: <tspan fill="#f0f6fc" font-weight="600">24/11/2026 04:23 BRT</tspan>
     </text>
   </g>
 </svg>
